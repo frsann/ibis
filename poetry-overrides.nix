@@ -98,12 +98,13 @@ in
     let
       inherit (attrs) version;
       src = pkgs.fetchFromGitHub {
+        name = "polars";
         owner = "pola-rs";
         repo = "polars";
         rev = "py-${version}";
-        sha256 = "sha256-fg6rmfu2N6prnWQPRVePs+p9m+/ALAzUVjEvnBo43Og=";
+        sha256 = "sha256-NvZzPLqboOi4AxKrDvuDyAJSlZ3qWbDC+V02jHTb6sk=";
       };
-      sourceRoot = "source/py-polars";
+      sourceRoot = "polars/py-polars";
       nightlyRustPlatform = pkgs.makeRustPlatform {
         cargo = pkgs.rustNightly;
         rustc = pkgs.rustNightly;
@@ -119,7 +120,7 @@ in
       cargoDeps = nightlyRustPlatform.fetchCargoTarball {
         inherit src sourceRoot patches;
         name = "${attrs.pname}-${version}";
-        sha256 = "sha256-r253JbZpKXKwxpSCPSrKrIWQGdUL4GoO/n3Qo9/rosc=";
+        sha256 = "sha256-xZPrg4lpIy2XDsVXYB3+xUzd6lcgwFjLVNSJxw+BJuI=";
       };
     });
 
